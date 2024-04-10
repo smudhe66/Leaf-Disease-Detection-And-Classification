@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+      integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX"
+      crossorigin="anonymous"
+    />
+
+    <title>LEAF DISEASE PREDICTION</title>
+
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+
+      .border img {
+        border-radius: 15px;
+        border: 2px solid black;
+      }
+      .header {
+        display: flex;
+      }
+      .header a {
+        width: 100px;
+        height: 48px;
+        margin: 21px 9px 10px 24px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .header div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body background="{{url_for('static',filename = 'images/Back.jpg')}}">
+    <div class="header">
+      <a href="{{ url_for('home') }}" class="btn btn-primary">Back</a>
+      <div>
+        <h1 style="text-align: center; font-size: 4rem">
+          Predict Leaf Disease & Get Cure
+        </h1>
+      </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="container my-2">
+      <div class="row mb-5">
+        <div class="col-sm" style="margin-bottom: 23px">
+          <span class="border border-primary">
+            <!-- <img src="{{url_for('static',filename = 'images/TomatoHealthy2.JPG' )}}" alt="User Image" style="width: 500px; height: 500px"/> -->
+            <img
+              src="{{ url_for('static', filename='upload/' + filename) }}"
+              alt="User Image"
+              style="width: 500px; height: 500px"
+            />
+          </span>
+        </div>
+
+        <div class="col-sm">
+          <div>
+            <h1
+              style="
+                padding: 15px;
+                background-color: rgb(15, 15, 15);
+                color: white;
+              "
+              class="text-center mb-5 content-h1 rounded"
+            >
+              {{pred_output}}
+            </h1>
+          </div>
+          <div class="details">
+            <h4><b> There is no disease on the Tomato leaf. </b></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
